@@ -16,7 +16,7 @@ import geopandas as gpd
 from osgeo import gdal, ogr, osr
 
 # Create script variables
-Workspace = 'F:/tko_root/GIS_WORKSPACE/MLABIADH/PyMe/slope_analysis/data'
+Workspace = 'C:/..../data'
 slope_raster = os.path.join (Workspace, 'Slope' , 'sheep_creek_slopePercent.tif') 
 AOI =  os.path.join (Workspace, 'AOI' , 'AOI.shp') 
 
