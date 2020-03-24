@@ -76,6 +76,32 @@ with rasterio.open(reclass_raster, 'w', **profile) as dst:
     crs = src.crs
 print ("Raster reclassified")
 
+# Calculate the area of each Slope Class
+for file in os.listdir(Reclass_dir):
+    if file.endswith("_reclass.tif"):
+        reclass_raster = os.path.join(Masked_dir, file)
+
+raster =  rasterio.open (reclass_raster)
+array_raster = raster.read()
+
+ ## Retrieve the pixel size and caluclate the Pixel Area
+pixelSizeX, pixelSizeY  = raster.res
+pixelArea = pixelSizeX * pixelSizeY 
+
+ ## Calculate the area in hectares for each Class 
+Area_class_1 = (np.count_nonzero(array_raster == 1) * pixelArea) / 10000
+Area_class_2 = (np.count_nonzero(array_raster == 2) * pixelArea) / 10000
+Area_class_3 = (np.count_nonzero(array_raster == 3) * pixelArea) / 10000
+Area_class_4 = (np.count_nonzero(array_raster == 4) * pixelArea) / 10000
+Area_class_5 = (np.count_nonzero(array_raster == 5) * pixelArea) / 10000
+
+print (Area_class_1)
+print (Area_class_2)
+print (Area_class_3)
+print (Area_class_4)
+print (Area_class_5)
+
+'''
 # Vectorize the raster
 Vector_dir = os.path.join (Workspace, 'Vector')
 if not os.path.exists(Vector_dir):
@@ -111,5 +137,5 @@ print ("Dissolving and agregating areas...in progress")
 slope_class_vector_dissolve = slope_class_vector.dissolve(by='gridcode' , aggfunc = 'sum')
 slope_class_vector_dissolve.to_file(os.path.join (Workspace, 'Vector', os.path.basename (dst_layername)+'_dissolve.shp'))
 #os.remove(dst_layername + ".shp")
-
+'''
 print ("Process Completed")
