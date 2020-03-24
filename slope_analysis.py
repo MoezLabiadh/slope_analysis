@@ -70,7 +70,7 @@ with rasterio.open(masked_raster) as src:
     array_out[np.where((70 < array_in) & (array_in <= 80)) ] = 4 #slopes from 70 to 80%
     array_out[np.where(array_in > 80)] = 5 #slopes >  80%
     
-reclass_raster = os.path.join (Workspace, Reclass_dir, os.path.basename (masked_raster)[:-4]+'_reclass.tif')  
+reclass_raster = os.path.join (Workspace, Reclass_dir, os.path.basename (masked_raster)[:-4]+'_reclass.tif') # output image  
 with rasterio.open(reclass_raster, 'w', **profile) as dst:
     dst.write(array_out)
     crs = src.crs
@@ -137,5 +137,9 @@ print ("Dissolving and agregating areas...in progress")
 slope_class_vector_dissolve = slope_class_vector.dissolve(by='gridcode' , aggfunc = 'sum')
 slope_class_vector_dissolve.to_file(os.path.join (Workspace, 'Vector', os.path.basename (dst_layername)+'_dissolve.shp'))
 #os.remove(dst_layername + ".shp")
+<<<<<<< HEAD
 '''
+=======
+
+>>>>>>> cc47c86aef00a401c4e7e57acb1a81745fca3fef
 print ("Process Completed")
