@@ -3,6 +3,8 @@
 This script takes a raster (slope) as input and perform the following manipulations:
     - Clip the raster using a polygon shapefile.
     - Reclassify the slope raster to predefined ranges.
+    - Calculate of aera (ha) of each slope Class, OR
+    
     - Vectorize the final raster output.
     - Calculate Areas for each slope class.
 """
