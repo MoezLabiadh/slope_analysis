@@ -97,11 +97,11 @@ Area_class_3 = (np.count_nonzero(array_raster == 3) * pixelArea) / 10000
 Area_class_4 = (np.count_nonzero(array_raster == 4) * pixelArea) / 10000
 Area_class_5 = (np.count_nonzero(array_raster == 5) * pixelArea) / 10000
 
-print (Area_class_1)
-print (Area_class_2)
-print (Area_class_3)
-print (Area_class_4)
-print (Area_class_5)
+print ("The area of Class 1 is" , Area_class_1, "ha")
+print ("The area of Class 2 is" , Area_class_2, "ha")
+print ("The area of Class 3 is" , Area_class_3, "ha")
+print ("The area of Class 4 is" , Area_class_4, "ha")
+print ("The area of Class 5 is" , Area_class_5, "ha")
 
 '''
 # Vectorize the raster
