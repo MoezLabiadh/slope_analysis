@@ -81,7 +81,7 @@ print ("Raster reclassified")
 # Calculate the area of each Slope Class
 for file in os.listdir(Reclass_dir):
     if file.endswith("_reclass.tif"):
-        reclass_raster = os.path.join(Masked_dir, file)
+        reclass_raster = os.path.join(Reclass_dir, file)
 
 raster =  rasterio.open (reclass_raster)
 array_raster = raster.read()
